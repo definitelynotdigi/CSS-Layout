@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Layouts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      padding: 20px;
+      background: #f8f8f8;
+    }
+
+    .layout-container {
+      border: 2px solid #000;
+      padding: 10px;
+      width: 100%;
+      background: #fff;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .box {
+      border: 1px solid #000;
+      background: #e0e0e0;
+    }
+
+    /* Layout 1 */
+    .layout1 {
+      display: grid;
+      grid-template-areas: 
+        "header header"
+        "sidebar top"
+        "sidebar main"
+        "sidebar bottom";
+      grid-template-columns: 1fr 4fr;
+      grid-template-rows: 50px 30px 150px 50px;
+      gap: 5px;
+    }
+    .layout1 .header { grid-area: header; }
+    .layout1 .sidebar { grid-area: sidebar; }
+    .layout1 .top { grid-area: top; }
+    .layout1 .main { grid-area: main; }
+    .layout1 .bottom { grid-area: bottom; }
+
+    /* Layout 2 */
+    .layout2 {
+      display: grid;
+      grid-template-areas:
+        "header header sidebar"
+        "left right sidebar"
+        "footer footer footer";
+      grid-template-columns: 1fr 1fr 0.6fr;
+      grid-template-rows: 50px 177px 60px;
+      gap: 5px;
+    }
+    .layout2 .header { grid-area: header; }
+    .layout2 .sidebar { grid-area: sidebar; }
+    .layout2 .left { grid-area: left; }
+    .layout2 .right { grid-area: right; }
+    .layout2 .footer { grid-area: footer; }
+
+    /* Layout 3 */
+    .layout3 {
+      display: grid;
+      grid-template-areas:
+        "circle header"
+        "bar bar"
+        "left right"
+        "footer circle2";
+      grid-template-columns: 60px auto;
+      grid-template-rows: auto 20px 130px 75px;
+      gap: 5px;
+    }
+    .layout3 .circle {
+      grid-area: circle;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: #aaa;
+    }
+    .layout3 .header { grid-area: header; }
+    .layout3 .bar { grid-area: bar; }
+    .layout3 .left { grid-area: left; }
+    .layout3 .right { grid-area: right; }
+    .layout3 .footer { grid-area: footer; width: 323px;}
+    .layout3 .circle2 {
+      grid-area: circle2;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: #aaa;
+      justify-self: end;
+    }
+  </style>
+</head>
+<body>
+  <!-- Layout 1 -->
+  <div class="layout-container">
+    <div class="title">Layout 1</div>
+    <div class="layout1">
+      <div class="box header">Header</div>
+      <div class="box sidebar">Sidebar</div>
+      <div class="box top">Top</div>
+      <div class="box main">Main</div>
+      <div class="box bottom">Bottom</div>
+    </div>
+  </div>
+
+  <!-- Layout 2 -->
+  <div class="layout-container">
+    <div class="title">Layout 2</div>
+    <div class="layout2">
+      <div class="box header">Header</div>
+      <div class="box sidebar">Sidebar</div>
+      <div class="box left">Left</div>
+      <div class="box right">Right</div>
+      <div class="box footer">Footer</div>
+    </div>
+  </div>
+
+  <!-- Layout 3 -->
+  <div class="layout-container">
+    <div class="title">Layout 3</div>
+    <div class="layout3">
+      <div class="circle"></div>
+      <div class="box header">Header</div>
+      <div class="box bar">Bar</div>
+      <div class="box left">Left</div>
+      <div class="box right">Right</div>
+      <div class="box footer">Footer</div>
+      <div class="circle2"></div>
+    </div>
+  </div>
+</body>
+</html>
